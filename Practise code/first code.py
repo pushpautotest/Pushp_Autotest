@@ -21,8 +21,8 @@ time.sleep(10)
 driver.find_element_by_xpath("//*[@id='navbarsExample09']/ul[2]/li[3]/div") .click()
 time.sleep(5)
 
-for i in range(1,2):
-    driver.find_element_by_xpath("//*[@id='navbarsExample09']/ul[2]/li[3]/div/div[2]/ul/li[str("+i+")]").click()
+for i in range(1,9):
+    driver.find_element_by_xpath("//*[@id='navbarsExample09']/ul[2]/li[3]/div/div[2]/ul/li["+str(i)+"]/a").click()
     print(i)
     time.sleep(10)
 driver.quit()
