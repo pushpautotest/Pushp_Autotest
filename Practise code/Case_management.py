@@ -1,5 +1,6 @@
 import time
 import smtplib
+from PIL import image
 #from datetimedemo import utility
 from fpdf import FPDF
 from email.message import EmailMessage
@@ -20,15 +21,24 @@ driver.find_element_by_xpath("/html/body/app-root/div[2]/app-login/div[1]/div[2]
 #pdf= PDF()
 #pdf= PDF(orientation='L')
 #pdf.add_page()
-pdf = FPDF()
-pdf.add_page()
-pdf.set_font("Arial", size=20)
+
+PDFtext = []
+PDFtext.append("Login successfully")
+print(str(len(PDFtext)))
+
 for i in range(2,10):
     #driver.find_element_by_xpath("/html/body/app-root/div[2]/ul/li["+str(i)+"]/a").click()
     driver.find_element_by_xpath("/html/body/app-root/div[2]/ul/li["+str(i)+"]/a").click()
     time.sleep(5)
     #driver.save_screenshot("C:/Users/Devil/Desktop/Screenshot/image_"+utility.current_time()+".jpg")
     driver.save_screenshot("C:/Users/Devil/Desktop/Screenshot/image_"+str(i)+".jpg")
+    pdf = FPDF()
+    pdf.add_page()
+    img1= image.open("image_"+str(i)+".jpg")
+    im1= img1.convert('RGB')
+#im1.save("PDFNew.pdf)
+
+   # pdf.set_font("Arial", size=20)
 pdf.output("PDFNew.pdf")
 
 #email Triggering
