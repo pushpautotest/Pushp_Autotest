@@ -1,11 +1,11 @@
 import time
 import smtplib
-from PIL import image
+from selenium import webdriver
+from PIL import Image
 #from datetimedemo import utility
 from fpdf import FPDF
 from email.message import EmailMessage
 
-from selenium import webdriver
 driver= webdriver.Chrome("C:/Users/Devil/PycharmProjects/Pushp_Autotest/Chrome/chromedriver.exe")
 
 driver.maximize_window()
@@ -33,10 +33,11 @@ for i in range(2,10):
     #driver.save_screenshot("C:/Users/Devil/Desktop/Screenshot/image_"+utility.current_time()+".jpg")
     driver.save_screenshot("C:/Users/Devil/Desktop/Screenshot/image_"+str(i)+".jpg")
     pdf = FPDF()
+    img1= Image.open("C:/Users/Devil/Desktop/Screenshot/image_"+str(i)+".jpg")
+    im1= img1.convert("RGB")
+    im1.save("PDFNew.pdf")
     pdf.add_page()
-    img1= image.open("image_"+str(i)+".jpg")
-    im1= img1.convert('RGB')
-#im1.save("PDFNew.pdf)
+    #im1.save("PDFNew.pdf)
 
    # pdf.set_font("Arial", size=20)
 pdf.output("PDFNew.pdf")
