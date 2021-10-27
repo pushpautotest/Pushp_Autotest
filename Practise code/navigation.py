@@ -17,6 +17,6 @@ print(driver.title)
 time.sleep(5)
 
 driver.forward()
-print(driver.title)
 time.sleep(5)
+print(driver.title)
 driver.quit()
