@@ -3,13 +3,16 @@ import smtplib
 #from datetimedemo import utility
 from fpdf import FPDF
 from email.message import EmailMessage
+#from PyPDF import PdfFileWriter, PdfFileReader
+
+from PIL import Image
 
 from selenium import webdriver
-driver= webdriver.Chrome("C:/Users/Devil/PycharmProjects/Pushp_Autotest/Chrome/chromedriver.exe")
+driver= webdriver.Chrome("C:/Users/QA/Pyhton_project/Pushp_Autotest\Chrome/chromedriver.exe")
 
 driver.maximize_window()
 driver.implicitly_wait(10)
-driver.get("http://casemgt.1wayit.com/#/login")
+driver.get("http://casemgt.1wayit.com/")
 
 #Locating Elements
 driver.find_element_by_xpath("/html/body/app-root/div[2]/app-login/div[1]/div[2]/div[1]/form/div[1]/input").send_keys("pushpender1wayit@gmail.com")
@@ -20,16 +23,18 @@ driver.find_element_by_xpath("/html/body/app-root/div[2]/app-login/div[1]/div[2]
 #pdf= PDF()
 #pdf= PDF(orientation='L')
 #pdf.add_page()
-pdf = FPDF()
-pdf.add_page()
-pdf.set_font("Arial", size=20)
+
 for i in range(2,10):
     #driver.find_element_by_xpath("/html/body/app-root/div[2]/ul/li["+str(i)+"]/a").click()
     driver.find_element_by_xpath("/html/body/app-root/div[2]/ul/li["+str(i)+"]/a").click()
     time.sleep(5)
     #driver.save_screenshot("C:/Users/Devil/Desktop/Screenshot/image_"+utility.current_time()+".jpg")
-    driver.save_screenshot("C:/Users/Devil/Desktop/Screenshot/image_"+str(i)+".jpg")
-pdf.output("PDFNew.pdf")
+    driver.save_screenshot("C:/Users/QA/Pyhton_project/Pushp_Autotest/Screenshot/image_"+str(i)+".jpg")
+    pdf = FPDF()
+    pdf.add_page(self,)
+
+    #driver.save_screenshot("C:/Users/Devil/Desktop/Screenshot/image_"+str(i)+".jpg")
+pdf.output("C:/Users/QA/Pyhton_project/Pushp_Autotest/PDF/PDFNew.pdf")
 
 #email Triggering
 sender_email="pushpender1wayit@gmail.com"
