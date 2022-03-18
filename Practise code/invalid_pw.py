@@ -34,7 +34,6 @@ while i < 2:
     print (str(i+1)+' '+ message)
     i = i+1
 
-
 # pdf = FPDF()
 # pdf.add_page()
 # pdf.set_font('Arial', 'I', 10)
