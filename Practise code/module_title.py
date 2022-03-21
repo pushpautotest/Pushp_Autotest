@@ -11,12 +11,13 @@ driver.find_element_by_xpath("/html/body/div/div/div/form/div/div/div[3]/input")
 time.sleep(2)
 driver.find_element_by_xpath("/html/body/div/div/div/form/div/div/div[4]/button").click()
 title = []
-for i in range (1,5):
+for i in range (1,10):
  time.sleep(2)
+ if i == 3:
+  continue
  driver.find_element_by_xpath("/html/body/div[3]/div/div[1]/div[2]/div[2]/ul/li["+str(i)+"]/a").click()
  name = driver.find_element_by_xpath("/html/body/div[3]/div/div[2]/div/div[2]/div[1]/div/div/h2").text
  title.append(name)
 print (title)
-#
 time.sleep(5)
 driver.quit()
