@@ -21,7 +21,8 @@ NumOfClicks = driver.find_element_by_xpath("//div[@id='tracking_listing_paginate
 NumOfClicks = int(NumOfClicks)
 print(NumOfClicks)
 for i in range (Count):
-     driver.execute_script("window.scroll(0, 0);")
+     print(1)
+     # driver.execute_script("window.scroll(0, 0);")
      selct.select_by_index(i)
      time.sleep(3)
 
